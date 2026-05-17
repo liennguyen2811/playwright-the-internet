@@ -5,7 +5,11 @@ export default defineConfig({
   fullyParallel: false,
   retries: 1,
   workers: 1,
-  reporter: [['html', { open: 'never' }], ['list']],
+  reporter: [
+    ['html', { open: 'never' }],
+    ['list'],
+    ['json', { outputFile: 'test-results/results.json' }],
+  ],
   use: {
     baseURL: 'https://the-internet.herokuapp.com',
     trace: 'on-first-retry',
