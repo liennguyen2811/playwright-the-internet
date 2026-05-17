@@ -74,13 +74,13 @@ jobs:
         uses: dawidd6/action-send-mail@v3
         with:
           server_address: smtp.gmail.com
-          server_port: 465
-          secure: true
+          server_port: 587
+          secure: false
           username: ${{ secrets.GMAIL_USER }}
           password: ${{ secrets.GMAIL_APP_PASSWORD }}
           subject: "${{ steps.results.outputs.icon }} Playwright Daily Report — ${{ steps.results.outputs.status }} (${{ steps.results.outputs.passed }}/${{ steps.results.outputs.total }} passed)"
           to: liennguyen2811@gmail.com
-          from: "Playwright CI <${{ secrets.GMAIL_USER }}>"
+          from: ${{ secrets.GMAIL_USER }}
           html_body: |
             <!DOCTYPE html>
             <html>
